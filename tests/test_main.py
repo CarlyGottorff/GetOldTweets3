@@ -24,3 +24,12 @@ def test_QuerySearch():
     tweet = got.manager.TweetManager.getTweets(tweetCriteria)[0]
     assert '#europe' in tweet.hashtags.lower()
     assert '#refugees' in tweet.hashtags.lower()
+
+def test_QuerySearchForNativeRetweets():
+    tweetCriteria = got.manager.TweetCriteria().setQuerySearch('cencosud')\
+                                               .setSince("2019-07-02")\
+                                               .setUntil("2019-07-03")\
+                                               .setMaxTweets(5)
+    tweets = got.manager.TweetManager.getTweets(tweetCriteria)
+    for tweet in tweets:
+        print("- ID: {} | RT ID: {} | {}".format(tweet.id, tweet.retweet_id, tweet.text))
