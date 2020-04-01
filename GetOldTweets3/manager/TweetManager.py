@@ -281,7 +281,7 @@ class TweetManager:
         if not tweetCriteria.topTweets:
             url += "f=tweets&"
 
-        url += ("vertical=news&q=%s&src=typd&%s"
+        url += ("vertical=news&q=%s&src=spelling_expansion_revert_click&%s"
                 "&include_available_features=1&include_entities=1&max_position=%s"
                 "&reset_error_state=false")
 
@@ -345,7 +345,7 @@ class TweetManager:
             jsonResponse = response.read()
         except Exception as e:
             print("An error occured during an HTTP request:", str(e))
-            print("Try to open in browser: https://twitter.com/search?q=%s&src=typd" % urllib.parse.quote(urlGetData))
+            print("Try to open in browser: https://twitter.com/search?q=%s&src=spelling_expansion_revert_click" % urllib.parse.quote(urlGetData))
             sys.exit()
 
         try:
