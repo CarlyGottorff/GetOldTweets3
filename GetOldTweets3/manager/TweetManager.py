@@ -290,6 +290,9 @@ class TweetManager:
         if hasattr(tweetCriteria, 'querySearch'):
             urlGetData += tweetCriteria.querySearch
 
+        if hasattr(tweetCriteria, 'excludeWords'):
+            urlGetData += ' -'.join([''] + tweetCriteria.excludeWords)
+
         if hasattr(tweetCriteria, 'username'):
             if not hasattr(tweetCriteria.username, '__iter__'):
                 tweetCriteria.username = [tweetCriteria.username]
@@ -312,6 +315,15 @@ class TweetManager:
 
         if hasattr(tweetCriteria, 'until'):
             urlGetData += ' until:' + tweetCriteria.until
+
+        if hasattr(tweetCriteria, 'minReplies'):
+            urlGetData += ' min_replies:' + tweetCriteria.minReplies
+
+        if hasattr(tweetCriteria, 'minFaves'):
+            urlGetData += ' min_faves:' + tweetCriteria.minFaves
+
+        if hasattr(tweetCriteria, 'minRetweets'):
+            urlGetData += ' min_retweets:' + tweetCriteria.minRetweets
 
         if hasattr(tweetCriteria, 'lang'):
             urlLang = 'l=' + tweetCriteria.lang + '&'
