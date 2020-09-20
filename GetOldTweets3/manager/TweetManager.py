@@ -276,12 +276,16 @@ class TweetManager:
         """Invoke an HTTP query to Twitter.
         Should not be used as an API function. A static method.
         """
-        url = "https://twitter.com/i/search/timeline?"
+        #url = "https://twitter.com/i/search/timeline?"
+        url = "https://twitter.com/search?"
 
         if not tweetCriteria.topTweets:
-            url += "f=tweets&"
+            url += "f=live&"
 
-        url += ("vertical=news&q=%s&src=spelling_expansion_revert_click&%s"
+        # url += ("vertical=news&q=%s&src=spelling_expansion_revert_click&%s"
+        #         "&include_available_features=1&include_entities=1&max_position=%s"
+        #         "&reset_error_state=false")
+        url += ("vertical=news&q=%s&src=typed_query&%s"
                 "&include_available_features=1&include_entities=1&max_position=%s"
                 "&reset_error_state=false")
 
