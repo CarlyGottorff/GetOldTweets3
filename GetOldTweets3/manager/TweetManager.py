@@ -278,16 +278,21 @@ class TweetManager:
         """
         #url = "https://twitter.com/i/search/timeline?"
         url = "https://twitter.com/search?"
-
+        
+        url += ("q=%%20%s&src=typd%s"
+                "&include_available_features=1&include_entities=1&max_position=%s"
+                "&reset_error_state=false")
+        
         if not tweetCriteria.topTweets:
             url += "f=live&"
+        
 
         # url += ("vertical=news&q=%s&src=spelling_expansion_revert_click&%s"
         #         "&include_available_features=1&include_entities=1&max_position=%s"
         #         "&reset_error_state=false")
-        url += ("vertical=news&q=%s&src=typed_query&%s"
-                "&include_available_features=1&include_entities=1&max_position=%s"
-                "&reset_error_state=false")
+        #url += ("vertical=news&q=%s&src=typed_query&%s"
+        #       "&include_available_features=1&include_entities=1&max_position=%s"
+        #      "&reset_error_state=false")
 
         urlGetData = ''
 
